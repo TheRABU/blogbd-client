@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
 import { NavigationSheet } from "./navigation-sheet";
 import { Button } from "../../ui/button";
@@ -12,7 +11,7 @@ const Navbar = () => {
       <div className="flex h-full items-center justify-between px-6 md:px-8">
         {/* Logo with consistent padding */}
         <Link href="/" className="flex-shrink-0 ">
-          <Logo />
+          <span className="text-black font-bold">BlogBD</span>
         </Link>
 
         {/* Desktop Menu with consistent horizontal spacing */}

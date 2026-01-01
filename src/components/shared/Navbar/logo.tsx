@@ -1,5 +1,10 @@
 import Image from "next/image";
 
 export const Logo = () => (
-  <Image width={90} height={90} src="/logo.jpg" alt="Company Logo"></Image>
+  <Image
+    width={90}
+    height={90}
+    src="/public/next.svg"
+    alt="Company Logo"
+  ></Image>
 );
