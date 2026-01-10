@@ -58,13 +58,19 @@ export const authOptions: NextAuthOptions = {
             return null;
           }
 
-          const user = await res.json();
-          if (user.id) {
+          const data = await res.json();
+
+          const backendUser = data?.login?.user;
+
+          if (!backendUser?.id) {
+            return null;
+          }
+          if (backendUser.id) {
             return {
-              id: user?.id,
-              name: user?.name,
-              email: user?.email,
-              image: user?.picture,
+              id: backendUser?.id,
+              name: backendUser?.name,
+              email: backendUser?.email,
+              image: backendUser?.picture,
             };
           } else {
             return null;

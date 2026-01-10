@@ -3,6 +3,8 @@ import { getUserSession } from "@/src/helpers/getUserSession";
 const DashboardPage = async () => {
   const session = await getUserSession();
 
+  console.log("session from dashboard", session);
+
   return (
     <>
       <div className="min-h-screen flex flex-col justify-center items-center bg-gray-50 p-6 w-full">
