@@ -17,6 +17,7 @@ import { login } from "@/src/actions/auth";
 import { toast } from "sonner";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
+import { useRouter } from "next/navigation";
 
 // type LoginFormValues = {
 //   email: string;
@@ -31,11 +32,14 @@ export default function LoginForm() {
     },
   });
 
+  const router = useRouter();
   const onSubmit = async (values: FieldValues) => {
     try {
       // const res = await login(values);
-      // if (res?.id) {
+      // console.log("response", res);
+      // if (res?.login.user?.id) {
       //   toast.success("User Logged in Successfully");
+      //   router.push("/dashboard");
       // } else {
       //   toast.error("User Login Failed");
       // }
