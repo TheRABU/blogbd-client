@@ -2,16 +2,20 @@
 
 import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
+import { getUserSession } from "../helpers/getUserSession";
 
 export const create = async (data: FormData) => {
   const blogInfo = Object.fromEntries(data.entries());
+
+  const session = await getUserSession();
+
   const modifiedData = {
     ...blogInfo,
     tags: blogInfo.tags
       .toString()
       .split(",")
       .map((tag) => tag.trim()),
-    // authorId: session?.user?.id,
+    authorId: session?.user?.id,
     isFeatured: Boolean(blogInfo.isFeatured),
   };
 
@@ -24,8 +28,9 @@ export const create = async (data: FormData) => {
   });
 
   const result = await res.json();
+  console.log("result of create blog post req", result);
 
-  if (result?.id) {
+  if (result?.post?.id) {
     revalidateTag("BLOGS", "max");
     revalidatePath("/blogs");
     redirect("/");
