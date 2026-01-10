@@ -10,12 +10,14 @@ declare module "next-auth" {
       email?: string | null;
       image?: string | null;
     };
+    accessToken?: string | null;
   }
   interface User {
     id: string;
     name?: string | null;
     email?: string | null;
     image?: string | null;
+    accessToken?: string | null;
   }
 }
 
@@ -71,6 +73,7 @@ export const authOptions: NextAuthOptions = {
               name: backendUser?.name,
               email: backendUser?.email,
               image: backendUser?.picture,
+              accessToken: data?.login?.accessToken,
             };
           } else {
             return null;
@@ -86,12 +89,14 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user?.id;
+        token.accessToken = user.accessToken;
       }
       return token;
     },
     async session({ session, token }) {
       if (session?.user) {
         session.user.id = token?.id as string;
+        session.accessToken = token.accessToken as string;
       }
       return session;
     },

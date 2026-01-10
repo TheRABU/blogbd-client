@@ -8,8 +8,6 @@ import { signOut, useSession } from "next-auth/react";
 export default function Sidebar() {
   const session = useSession();
 
-  console.log("UseSession", session);
-
   return (
     <aside className="flex h-screen w-64 flex-col border-r bg-black text-white">
       {/* Top navigation */}
@@ -28,6 +26,13 @@ export default function Sidebar() {
         >
           <PlusCircle className="h-4 w-4" />
           Create Blog
+        </Link>
+        <Link
+          href="/dashboard/my-blogs"
+          className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-gray-100 hover:text-black"
+        >
+          <PlusCircle className="h-4 w-4" />
+          My Blogs
         </Link>
       </nav>
 
