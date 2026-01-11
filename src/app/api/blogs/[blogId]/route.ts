@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { blogs } from "../route";
+import { blogs } from "../data";
 
 export async function GET(
   request: Request,
