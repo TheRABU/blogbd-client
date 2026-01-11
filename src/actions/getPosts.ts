@@ -12,9 +12,8 @@ export async function getMyPosts() {
       Authorization: `Bearer ${session.accessToken}`,
       "Content-Type": "application/json",
     },
+    cache: "no-store",
   });
-
-  console.log("frontend getMyPosts::::", res);
 
   if (!res.ok) throw new Error("Failed to fetch posts");
 

@@ -2,6 +2,8 @@
 import { getMyPosts } from "@/src/actions/getPosts";
 import Image from "next/image";
 
+export const dynamic = "force-dynamic";
+
 const MyBlogsPage = async () => {
   let posts = [];
   let error = null;
