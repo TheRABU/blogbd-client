@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import BlogCard from "@/src/components/modules/Blogs/BlogCard";
 import Hero from "@/src/components/modules/Home/Hero";
 
